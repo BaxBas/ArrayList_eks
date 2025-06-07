@@ -1,0 +1,5 @@
+1.arraylist importeshanas sintakse
+Kura ir pareizā atbilde?
+2. arraylist izveides sintakse
+3. arraylist plusi
+4. arraylist minusi

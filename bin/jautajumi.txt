@@ -1,2 +1,0 @@
-1. arraylist importeshanas sintakse
-2. arraylist izveides sintakse
