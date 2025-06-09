@@ -31,7 +31,7 @@ public class MainDala {
 	}
 
 	public static void main(String[] args) {
-		apskatit("jautajumi.txt");
+		apskatit("src/jautajumi.txt");
 		JPanel panel = new JPanel();
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
