@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class MainDala {
-	//globalie mainiigie
+	//globaalie mainiigie
 	public static ArrayList<Jautajums> visiJautajumi = new ArrayList<>();
     public static int jautNr = 0;
 
@@ -42,18 +42,7 @@ public class MainDala {
 		        
 		        visiJautajumi.add(new Jautajums(uzdNos, jautajums, atbVar, atbildes));
 	        }
-	        br.close();
-	        /*
-	        String nolasitais = "";
-	        nolasitais += uzdNos;
-	        nolasitais += "\n"+jautajums+"\n";
-	        for (String variants:atbVar) {
-	        	nolasitais += variants+"\n";
-	        }
-	        nolasitais += atbildes;
-	        
-	        JOptionPane.showMessageDialog(null, nolasitais, "Faila saturs", JOptionPane.INFORMATION_MESSAGE);*/
-	        
+	        br.close();	        
 	    } catch (IOException e) {
 	        JOptionPane.showMessageDialog(null, "Radās kļūda, nolasot failu!", "Kļūda", JOptionPane.WARNING_MESSAGE);
 	    }
@@ -61,6 +50,7 @@ public class MainDala {
 
 	public static void main(String[] args) {
 		apskatit("src/jautajumi.txt");
+		int pareiziArPirmo=0;
 		for(int i=0;i<2;i++) {
 			int piegajieni = 0;
 			do {
@@ -91,15 +81,22 @@ public class MainDala {
 				    Collections.sort(izvele);
 				    
 				    if (izvele.equals(visiJautajumi.get(jautNr).atbildes)) {
-				    	piegajieni+=1;
+				    	piegajieni++;
 				        JOptionPane.showMessageDialog(null, "Pareizi! Ar "+piegajieni+".piegājienu!");
 				    } else {
 				        JOptionPane.showMessageDialog(null, "Nepareizi, mēģini vēlreiz!");
-				        piegajieni+=1;
+				        piegajieni++;
 				    }
 				}else break;
 			}while(!izvele.equals(visiJautajumi.get(jautNr).atbildes));
+			if (piegajieni==1) pareiziArPirmo++;
 			jautNr++;
 		}
+		if(pareiziArPirmo==0)
+			JOptionPane.showMessageDialog(null, "Tests beidzies! Ar 1.piegājienu tu atbildēji uz nevienu jautājumu :(");
+		else if(pareiziArPirmo==1)
+			JOptionPane.showMessageDialog(null, "Tests beidzies! Ar 1.piegājienu tu atbildēji uz "+pareiziArPirmo+" jautājumu!");
+		else
+			JOptionPane.showMessageDialog(null, "Tests beidzies! Ar 1.piegājienu tu atbildēji uz "+pareiziArPirmo+" jautājumiem!");
 	}
 }

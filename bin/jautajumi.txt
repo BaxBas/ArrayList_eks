@@ -12,6 +12,12 @@ clear()
 add()
 remove()
 1,2,3
-
+3.ArrayList īpašības
+Kuras no šīm ir ArrayList īpašības?
+Dinamisks lielums
+Daudzdimensionāls
+Var glabāt primitīvus
+Var glabāt null vērtības
+1,4
 arraylist plusi
 arraylist minusi
