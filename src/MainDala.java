@@ -117,6 +117,8 @@ public class MainDala {
 			JOptionPane.showMessageDialog(null, "Tests beidzies! Ar 1.piegājienu tu atbildēji uz nevienu jautājumu :(");
 		else if(pareiziArPirmo==1)
 			JOptionPane.showMessageDialog(null, "Tests beidzies! Ar 1.piegājienu tu atbildēji uz "+pareiziArPirmo+" jautājumu!");
+		else if(pareiziArPirmo==10)
+			JOptionPane.showMessageDialog(null, "Tests beidzies! Ar 1.piegājienu tu atbildēji uz visiem jautājumiem!");
 		else
 			JOptionPane.showMessageDialog(null, "Tests beidzies! Ar 1.piegājienu tu atbildēji uz "+pareiziArPirmo+" jautājumiem!");
 	}
