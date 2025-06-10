@@ -12,33 +12,37 @@ import javax.swing.JPanel;
 
 public class MainDala {
 	//globalie mainiigie
-	public static String uzdNos;
-	public static String jautajums;
-	public static ArrayList<String> atbVar = new ArrayList<>();
-	public static ArrayList<Integer> atbildes = new ArrayList<>();
+	public static ArrayList<Jautajums> visiJautajumi = new ArrayList<>();
+    public static int jautNr = 0;
+
 	public static ArrayList<Integer> izvele = new ArrayList<>();
 	
 	static void apskatit(String teksts) {
 		try {
 	        FileReader fr = new FileReader(teksts);
 	        BufferedReader br = new BufferedReader(fr);
+	        
+	        for(int i=0;i<2;i++) {
+	        	String uzdNos;
+		        String jautajums;
+		        ArrayList<String> atbVar = new ArrayList<>();
+		        ArrayList<Integer> atbildes = new ArrayList<>();
+		        
+		        uzdNos = br.readLine();
+		        jautajums = br.readLine();
 
-	        uzdNos = br.readLine();
-	        jautajums = br.readLine();
-	        atbVar.clear();
-	        for(int i=0;i<4;i++) {
-	        	atbVar.add(br.readLine());
+		        for(int j=0;j<4;j++) {
+		        	atbVar.add(br.readLine());
+		        }
+		        String[] pareizie = br.readLine().split(",");
+	
+		        for (String s:pareizie) {
+		            atbildes.add(Integer.parseInt(s.trim())-1);
+		        }
+		        
+		        visiJautajumi.add(new Jautajums(uzdNos, jautajums, atbVar, atbildes));
 	        }
-	        String pareizie = br.readLine();
 	        br.close();
-	        
-	        String[] parts = pareizie.split(",");
-
-	        atbildes.clear();
-	        for (String s : parts) {
-	            atbildes.add(Integer.parseInt(s.trim())-1);
-	        }
-	        
 	        /*
 	        String nolasitais = "";
 	        nolasitais += uzdNos;
@@ -56,43 +60,46 @@ public class MainDala {
 	}
 
 	public static void main(String[] args) {
-		int piegajieni = 0;
-		do {
-			apskatit("src/jautajumi.txt");
-			JPanel panel = new JPanel();
-			panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-	
-			JLabel jautTeik = new JLabel(jautajums);
-			panel.add(jautTeik);
-	
-			JCheckBox[] checkboxi = new JCheckBox[4];
-			for (int i=0; i<4;i++) {
-			    checkboxi[i] = new JCheckBox(atbVar.get(i));
-			    panel.add(checkboxi[i]);
-			}
-	
-			int rez = JOptionPane.showConfirmDialog(null, panel, uzdNos, JOptionPane.OK_CANCEL_OPTION);
-	
-			if (rez == JOptionPane.OK_OPTION) {
-			    izvele.clear();
-			    for (int i=0;i<checkboxi.length;i++) {
-			        if (checkboxi[i].isSelected()) {
-			            izvele.add(i);
-			        }
-			    }
-	
-			    //sakarto alfabeta seciba prieksh salidzinashanas (lai butu pec kartas, nevis kaa tika izveleti checkboxi)
-			    Collections.sort(atbildes);
-			    Collections.sort(izvele);
-			    
-			    if (izvele.equals(atbildes)) {
-			    	piegajieni+=1;
-			        JOptionPane.showMessageDialog(null, "Pareizi! Ar "+piegajieni+".piegājienu!");
-			    } else {
-			        JOptionPane.showMessageDialog(null, "Nepareizi, mēģini vēlreiz!");
-			        piegajieni+=1;
-			    }
-			}
-		}while(!izvele.equals(atbildes));
+		apskatit("src/jautajumi.txt");
+		for(int i=0;i<2;i++) {
+			int piegajieni = 0;
+			do {
+				JPanel panel = new JPanel();
+				panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+		
+				JLabel jautTeik = new JLabel(visiJautajumi.get(jautNr).jautajums);
+				panel.add(jautTeik);
+		
+				JCheckBox[] checkboxi = new JCheckBox[4];
+				for (int j=0; j<4;j++) {
+				    checkboxi[j] = new JCheckBox(visiJautajumi.get(jautNr).atbVar.get(j));
+				    panel.add(checkboxi[j]);
+				}
+		
+				int rez = JOptionPane.showConfirmDialog(null, panel, visiJautajumi.get(jautNr).uzdNos, JOptionPane.OK_CANCEL_OPTION);
+		
+				if (rez == JOptionPane.OK_OPTION) {
+				    izvele.clear();
+				    for (int j=0;j<checkboxi.length;j++) {
+				        if (checkboxi[j].isSelected()) {
+				            izvele.add(j);
+				        }
+				    }
+		
+				    //sakarto alfabeta seciba prieksh salidzinashanas (lai butu pec kartas, nevis kaa tika izveleti checkboxi)
+				    Collections.sort(visiJautajumi.get(jautNr).atbildes);
+				    Collections.sort(izvele);
+				    
+				    if (izvele.equals(visiJautajumi.get(jautNr).atbildes)) {
+				    	piegajieni+=1;
+				        JOptionPane.showMessageDialog(null, "Pareizi! Ar "+piegajieni+".piegājienu!");
+				    } else {
+				        JOptionPane.showMessageDialog(null, "Nepareizi, mēģini vēlreiz!");
+				        piegajieni+=1;
+				    }
+				}else break;
+			}while(!izvele.equals(visiJautajumi.get(jautNr).atbildes));
+			jautNr++;
+		}
 	}
 }

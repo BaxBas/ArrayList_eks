@@ -5,6 +5,13 @@ ArrayList<> saraksts = new ArrayList<String>();
 Arraylist<String> saraksts = new ArrayList<String>();
 ArrayList<String> saraksts = new ArrayList<String>();
 1,4
+2.ArrayList metodes
+Kuras ir ArrayList metodes?
+delete()
+clear()
+add()
+remove()
+1,2,3
 
 arraylist plusi
 arraylist minusi
