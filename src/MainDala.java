@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 
 import javax.swing.BoxLayout;
@@ -51,6 +52,23 @@ public class MainDala {
 	public static void main(String[] args) {
 		apskatit("src/jautajumi.txt");
 		int pareiziArPirmo=0;
+		
+		String[] iespejas = {"Sākt testu","Informācija"};
+		int izv;
+		do {
+			String izveletais = (String) JOptionPane.showInputDialog(null, "ArrayList tests", "Sākumekrāns", JOptionPane.INFORMATION_MESSAGE, null, iespejas, iespejas[0]);
+			izv = Arrays.asList(iespejas).indexOf(izveletais);
+			if(izv==1){
+				JOptionPane.showMessageDialog(null, "Tests sastāv no 10 jautājumiem, katram jautājumam ir 2-3 pareizās atbildes."
+						+ "\nUz nākamo jautājumu var tikt tikai, ja ir atbildēts pareizi."
+						+ "\nTesta beigās varēs redzēt uz cik jautājumiem tika atbildēts ar 1.piegājienu."
+						+ "\nVeiksmi testā! :D", "Informācija", JOptionPane.INFORMATION_MESSAGE);
+			}else if(izv!= JOptionPane.OK_OPTION) {
+				JOptionPane.showMessageDialog(null, "Programma tiek aizvērta.", "Programmas aizvēršana", JOptionPane.WARNING_MESSAGE);
+				System.exit(0);
+			}
+		}while(izv!=0);
+		
 		for(int i=0;i<10;i++) {
 			int piegajieni = 0;
 			do {
@@ -87,7 +105,10 @@ public class MainDala {
 				        JOptionPane.showMessageDialog(null, "Nepareizi, mēģini vēlreiz!");
 				        piegajieni++;
 				    }
-				}else break;
+				}else{
+					JOptionPane.showMessageDialog(null, "Tests pārtraukts. Programma tiek aizvērta.", "Programmas aizvēršana", JOptionPane.WARNING_MESSAGE);
+					System.exit(0);
+				}
 			}while(!izvele.equals(visiJautajumi.get(jautNr).atbildes));
 			if (piegajieni==1) pareiziArPirmo++;
 			jautNr++;
