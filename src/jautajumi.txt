@@ -1,23 +1,70 @@
-1.ArrayList izveides sintakse
-Kā var izveidot ArrayList sarakstu?
-ArrayList<String> saraksts = new ArrayList<>();
-ArrayList<> saraksts = new ArrayList<String>();
-Arraylist<String> saraksts = new ArrayList<String>();
-ArrayList<String> saraksts = new ArrayList<String>();
-1,4
-2.ArrayList metodes
-Kuras ir ArrayList metodes?
-delete()
-clear()
-add()
-remove()
-1,2,3
-3.ArrayList īpašības
+1.ArrayList īpašības
 Kuras no šīm ir ArrayList īpašības?
 Dinamisks lielums
 Daudzdimensionāls
 Var glabāt primitīvus
 Var glabāt null vērtības
 1,4
-arraylist plusi
-arraylist minusi
+2.ArrayList lietošana
+Kādās situācijās ir ieteicams izmantot ArrayList?
+Datu skaits nav iepriekš zināms
+Datu skaits ir liels
+Datu skaits bieži mainās
+Neviens no minētajiem
+1,2,3
+3.ArrayList importēšanas sintakse
+Kā var importēt ArrayList sarakstu?
+import java.util.*
+import java.util.ArrayList;
+import java.util.*;
+import java.util.Arraylist
+2,3
+4.ArrayList izveides sintakse
+Kā var izveidot ArrayList sarakstu?
+ArrayList<String> saraksts = new ArrayList<>();
+ArrayList<> saraksts = new ArrayList<String>();
+Arraylist<string> saraksts = new ArrayList<String>();
+ArrayList<String> saraksts = new ArrayList<String>();
+1,4
+5.ArrayList metodes
+Kuras ir ArrayList metodes?
+delete()
+clear()
+add()
+remove()
+2,3,4
+6.ArrayList elementu izdzēšana
+Ar kurām metodēm var izdzēst elementu no saraksta?
+delete(indekss)
+remove(indekss)
+delete(elementa nosaukums)
+remove(elementa nosaukums)
+2,4
+7.ArrayList apstaigāšana
+Ar kādiem cikliem var apstaigāt sarakstu?
+Ar for ciklu
+Ar for-each ciklu
+Nevar
+Ar nevienu no minētajiem
+1,2
+8.Cikli un elementu modificēšana
+Kurus ciklus var izmantot, ja vajag modificēt elementus?
+For-each ciklu
+Do-while ciklu
+For ciklu
+While ciklu
+2,3,4
+9.For cikla sintakse
+Kāda ir pareiza for cikla sintakse?
+for(string s:saraksts){}
+for(int i=0;i<saraksts.size();i++){}
+for[int i=0;i<saraksts.size();i++]{}
+for(int k=0;k<saraksts.size();k++){}
+2,4
+10.For-each cikla sintakse
+Kāda ir pareiza for-each cikla sintakse?
+for(string s:saraksts){}
+for(string s-saraksts){}
+for(int c:cipari){}
+for(string s/saraksts){}
+1,3

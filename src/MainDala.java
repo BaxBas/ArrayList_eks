@@ -22,7 +22,7 @@ public class MainDala {
 	        FileReader fr = new FileReader(teksts);
 	        BufferedReader br = new BufferedReader(fr);
 	        
-	        for(int i=0;i<2;i++) {
+	        for(int i=0;i<10;i++) {
 	        	String uzdNos;
 		        String jautajums;
 		        ArrayList<String> atbVar = new ArrayList<>();
@@ -51,7 +51,7 @@ public class MainDala {
 	public static void main(String[] args) {
 		apskatit("src/jautajumi.txt");
 		int pareiziArPirmo=0;
-		for(int i=0;i<2;i++) {
+		for(int i=0;i<10;i++) {
 			int piegajieni = 0;
 			do {
 				JPanel panel = new JPanel();
