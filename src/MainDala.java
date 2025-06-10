@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -18,10 +19,14 @@ public class MainDala {
 
 	public static ArrayList<Integer> izvele = new ArrayList<>();
 	
-	static void apskatit(String teksts) {
+	static void apskatit() {
 		try {
-	        FileReader fr = new FileReader(teksts);
-	        BufferedReader br = new BufferedReader(fr);
+			InputStream is = MainDala.class.getResourceAsStream("/jautajumi.txt");
+	        if (is == null) {
+	            JOptionPane.showMessageDialog(null, "Fails 'jautajumi.txt' nav atrasts!", "Kļūda", JOptionPane.WARNING_MESSAGE);
+	            return;
+	        }
+	        BufferedReader br = new BufferedReader(new InputStreamReader(is));
 	        
 	        for(int i=0;i<10;i++) {
 	        	String uzdNos;
@@ -50,7 +55,7 @@ public class MainDala {
 	}
 
 	public static void main(String[] args) {
-		apskatit("src/jautajumi.txt");
+		apskatit();
 		int pareiziArPirmo=0;
 		
 		String[] iespejas = {"Sākt testu","Informācija"};
