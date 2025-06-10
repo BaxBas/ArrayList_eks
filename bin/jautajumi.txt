@@ -1,5 +1,10 @@
-1.arraylist importeshanas sintakse
-Kura ir pareizā atbilde?
-2. arraylist izveides sintakse
-3. arraylist plusi
-4. arraylist minusi
+1.ArrayList izveides sintakse
+Kā var izveidot ArrayList sarakstu?
+ArrayList<String> saraksts = new ArrayList<>();
+ArrayList<> saraksts = new ArrayList<String>();
+Arraylist<String> saraksts = new ArrayList<String>();
+ArrayList<String> saraksts = new ArrayList<String>();
+1,4
+
+arraylist plusi
+arraylist minusi
