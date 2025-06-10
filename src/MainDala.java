@@ -16,6 +16,7 @@ public class MainDala {
 	public static String jautajums;
 	public static ArrayList<String> atbVar = new ArrayList<>();
 	public static ArrayList<Integer> atbildes = new ArrayList<>();
+	public static ArrayList<Integer> izvele = new ArrayList<>();
 	
 	static void apskatit(String teksts) {
 		try {
@@ -33,10 +34,12 @@ public class MainDala {
 	        
 	        String[] parts = pareizie.split(",");
 
+	        atbildes.clear();
 	        for (String s : parts) {
 	            atbildes.add(Integer.parseInt(s.trim())-1);
 	        }
-
+	        
+	        /*
 	        String nolasitais = "";
 	        nolasitais += uzdNos;
 	        nolasitais += "\n"+jautajums+"\n";
@@ -45,7 +48,7 @@ public class MainDala {
 	        }
 	        nolasitais += atbildes;
 	        
-	        JOptionPane.showMessageDialog(null, nolasitais, "Faila saturs", JOptionPane.INFORMATION_MESSAGE);
+	        JOptionPane.showMessageDialog(null, nolasitais, "Faila saturs", JOptionPane.INFORMATION_MESSAGE);*/
 	        
 	    } catch (IOException e) {
 	        JOptionPane.showMessageDialog(null, "Radās kļūda, nolasot failu!", "Kļūda", JOptionPane.WARNING_MESSAGE);
@@ -53,38 +56,43 @@ public class MainDala {
 	}
 
 	public static void main(String[] args) {
-		apskatit("src/jautajumi.txt");
-		JPanel panel = new JPanel();
-		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-
-		JLabel jautTeik = new JLabel(jautajums);
-		panel.add(jautTeik);
-
-		JCheckBox[] checkboxi = new JCheckBox[4];
-		for (int i=0; i<4;i++) {
-		    checkboxi[i] = new JCheckBox(atbVar.get(i));
-		    panel.add(checkboxi[i]);
-		}
-
-		int rez = JOptionPane.showConfirmDialog(null, panel, uzdNos, JOptionPane.OK_CANCEL_OPTION);
-
-		if (rez == JOptionPane.OK_OPTION) {
-		    ArrayList<Integer> izvele = new ArrayList<>();
-		    for (int i=0;i<checkboxi.length;i++) {
-		        if (checkboxi[i].isSelected()) {
-		            izvele.add(i);
-		        }
-		    }
-
-		    //sakarto alfabeta seciba prieksh salidzinashanas (lai butu pec kartas, nevis kaa tika izveleti checkboxi)
-		    Collections.sort(atbildes);
-		    Collections.sort(izvele);
-
-		    if (izvele.equals(atbildes)) {
-		        JOptionPane.showMessageDialog(null, "Pareizi!");
-		    } else {
-		        JOptionPane.showMessageDialog(null, "Nepareizi!");
-		    }
-		}
+		int piegajieni = 0;
+		do {
+			apskatit("src/jautajumi.txt");
+			JPanel panel = new JPanel();
+			panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+	
+			JLabel jautTeik = new JLabel(jautajums);
+			panel.add(jautTeik);
+	
+			JCheckBox[] checkboxi = new JCheckBox[4];
+			for (int i=0; i<4;i++) {
+			    checkboxi[i] = new JCheckBox(atbVar.get(i));
+			    panel.add(checkboxi[i]);
+			}
+	
+			int rez = JOptionPane.showConfirmDialog(null, panel, uzdNos, JOptionPane.OK_CANCEL_OPTION);
+	
+			if (rez == JOptionPane.OK_OPTION) {
+			    izvele.clear();
+			    for (int i=0;i<checkboxi.length;i++) {
+			        if (checkboxi[i].isSelected()) {
+			            izvele.add(i);
+			        }
+			    }
+	
+			    //sakarto alfabeta seciba prieksh salidzinashanas (lai butu pec kartas, nevis kaa tika izveleti checkboxi)
+			    Collections.sort(atbildes);
+			    Collections.sort(izvele);
+			    
+			    if (izvele.equals(atbildes)) {
+			    	piegajieni+=1;
+			        JOptionPane.showMessageDialog(null, "Pareizi! Ar "+piegajieni+".piegājienu!");
+			    } else {
+			        JOptionPane.showMessageDialog(null, "Nepareizi, mēģini vēlreiz!");
+			        piegajieni+=1;
+			    }
+			}
+		}while(!izvele.equals(atbildes));
 	}
 }
