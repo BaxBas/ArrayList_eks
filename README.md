@@ -5,7 +5,7 @@ Izveidotais mācību materiāls par ArrayList izmantošanu Java programmēšanas
 https://www.canva.com/design/DAGpxJFSDl0/8eZhkBxj6-oFG3UKuD4ArQ/edit?utm_content=DAGpxJFSDl0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 ## Prezentācija
 Izveidotā prezentācija eksāmena aizstāvēšanai:
-
+<br>https://docs.google.com/presentation/d/11b8Cj_2uP8IB5hmgGuhGhQYr33GDg13n6Vt3rIurFPU/edit?usp=sharing
 # Par testa programmu
 Tests tika izveidots Java programmēšanas valodā.
 <br>Jautājumi ir balstīti uz informāciju, kas ir atrodama mācību materiālā. Droši pamēģini un pārbaudi savas zināšanas!
