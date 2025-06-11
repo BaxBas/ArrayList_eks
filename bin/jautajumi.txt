@@ -8,9 +8,9 @@ Var glabāt null vērtības
 2.ArrayList lietošana
 Kādās situācijās ir ieteicams izmantot ArrayList?
 Datu skaits nav iepriekš zināms
+Dati bieži ir jāpievieno
+Dati bieži ir jānoņem
 Datu skaits ir liels
-Datu skaits bieži mainās
-Neviens no minētajiem
 1,2,3
 3.ArrayList importēšanas sintakse
 Kā var importēt ArrayList sarakstu?
