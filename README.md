@@ -17,24 +17,34 @@ Tests tika izveidots Java programmēšanas valodā.
 Ja ir slinkums domāt, tad šeit var pašpikot pareizās atbildes!
 <br><b>1.jautājums:</b>
 <br>![image](https://github.com/user-attachments/assets/5d820adb-33f1-43aa-97da-642141c90c32)
+<br>Paskaidrojums: daudzdimensionāls un primitīvu glabāšana ir parastā masīva jeb Array īpašības
 <br><b>2.jautājums:</b>
-<br>![image](https://github.com/user-attachments/assets/5eac2e72-1b28-4a1f-acd5-d9603f864dfa)
+<br>![image](https://github.com/user-attachments/assets/83c5d88b-bf54-4fac-b00b-1de1a7165671)
+<br>Paskaidrojums: pirmie 3 ir pareizi, jo ArrayList ir dinamisks saraksts, bet nav efektīvs priekš liela datu apjoma
 <br><b>3.jautājums:</b>
 <br>![image](https://github.com/user-attachments/assets/4b626165-8cb2-4ab1-8f69-065fb3b66ccc)
+<br>Paskaidrojums: 1. un 4.variantam nav semikols beigās, 4.variantā ir Arraylist nevis ArrayList
 <br><b>4.jautājums:</b>
 <br>![image](https://github.com/user-attachments/assets/92dc5c56-fa5c-465b-a929-526bbb89e276)
+<br>Paskaidrojums: saraksta datu tipam ir jābūt tikai pirmajās vai abās <> un tips var būt tikai objekts (jeb 1.burts ir liels)
 <br><b>5.jautājums:</b>
 <br>![image](https://github.com/user-attachments/assets/fce61cd5-fd75-4b5b-b394-b7d850bcf7ea)
+<br>Paskaidrojums: delete() nav ArrayList metode
 <br><b>6.jautājums:</b>
 <br>![image](https://github.com/user-attachments/assets/05f9c852-b810-4655-a3ca-cd83b143ea23)
+<br>Paskaidrojums: delete() nav ArrayList metode, metodē remove() iekavās var ierādīt gan indeksu, gan elementu
 <br><b>7.jautājums:</b>
 <br>![image](https://github.com/user-attachments/assets/872757dc-bda7-4876-aabf-bae3475881b5)
+<br>Paskaidrojums: var apstaigāt sarakstu ar abiem
 <br><b>8.jautājums:</b>
 <br>![image](https://github.com/user-attachments/assets/96c7d3ac-cde7-4739-a5b9-a84be94fe2a5)
+<br>Paskaidrojums: ar for-each ciklu nevar modificēt saraksta elementus
 <br><b>9.jautājums:</b>
 <br>![image](https://github.com/user-attachments/assets/b2d516a2-8f74-4576-8994-270fed5717e1)
+<br>Paskaidrojums: 1.variants ir for-each cikls, 3.variantā ir [] nevis (), for ciklā mainīgais var tik nosaukts arī citādāk nekā tikai 'i'
 <br><b>10.jautājums:</b>
 <br>![image](https://github.com/user-attachments/assets/eba6fb65-cf8e-4087-a39c-af4f21509e1a)
+<br>Paskaidrojums: 2.variantā ir '-' nevis ';', 4.variantā ir '/' nevis ';', for-each cikla mainīga datu tipam ir jāsakrīt ar saraksta elementu tipu
 ## Testa rezultātu logi
 Testa beigās parādās logs, kur var redzēt uz cik jautājumiem esi atbildējis ar 1.piegajienu.
 Logs, kuru redzi testa beigās, var atšķirties aktarībā no tava iegūtā rezultāta!
